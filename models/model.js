@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const usuarioSchema = new Schema({
   nome: String,
   cpf: Number,
-  hierarquia: String
+  cargo: String
 }, { timestamps: true });
 
 const userModel = mongoose.model('usuarios', usuarioSchema);

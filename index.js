@@ -50,7 +50,7 @@ app.post("/usuarios", async (req, res) => {
     const usuario = await userModel.create({
       nome: req.body.nome,
       cpf: req.body.cpf,
-      hierarquia: req.body.hierarquia,
+      cargo: req.body.cargo,
     });
     return res.status(201).json(["Usuário criado com sucesso!", usuario]);
   } catch (error) {
@@ -68,10 +68,10 @@ app.put("/usuarios/:id", async (req, res) => {
     if (!usuarioExistente) {
       return res.status(404).json({ error: "Usuário não encontrado na base." });
     }
-    const usuarioDados = ({ nome, cpf, hierarquia } = req.body);
+    const usuarioDados = ({ nome, cpf, cargo } = req.body);
     const retornoBancoDados = await userModel.updateOne(
       { _id: usuarioId },
-      { nome, cpf, hierarquia }
+      { nome, cpf, cargo }
     );
     return res
       .status(200)
