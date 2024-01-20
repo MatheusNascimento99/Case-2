@@ -32,7 +32,7 @@ app.get("/usuarios/:id", async (req, res) => {
     return res.status(200).json(retornoBancoDados);
   } catch (error) {
     console.log(error);
-    return res.status(404).json({ error: "Usuário não encontrado." });
+    return res.status(404).json({ error: "Erro ao realizar requisição." });
   }
 });
 
@@ -55,7 +55,7 @@ app.post("/usuarios", async (req, res) => {
     return res.status(201).json(["Usuário criado com sucesso!", usuario]);
   } catch (error) {
     console.log(error);
-    return res.status(404).json({ error: "Erro ao cadastrar novo usuário." });
+    return res.status(404).json({ error: "Erro ao realizar requisição." });
   }
 });
 
@@ -81,7 +81,7 @@ app.put("/usuarios/:id", async (req, res) => {
         usuarioDados,
       ]);
   } catch (error) {
-    return res.status(404).json({ error: "Erro na atualização de usuário." });
+    return res.status(404).json({ error: "Erro ao realizar requisição.." });
   }
 });
 
@@ -100,7 +100,7 @@ app.delete("/usuarios/:id", async (req, res) => {
       .status(200)
       .json(["Usuário apagado com sucesso!", retornoBancoDados]);
   } catch (error) {
-    return res.status(500).json({ error: "Erro ao apagar usuário." });
+    return res.status(500).json({ error: "Erro ao realizar requisição.." });
   }
 });
 
